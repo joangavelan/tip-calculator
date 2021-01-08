@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIP calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/542ea1a396.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+      <div class="heading">
+        <h1>TIP CALCULATOR</h1>
+      </div>
+      <div class="main">
+        <!-- error messages -->
+        <div class="error-messages">
+          <p data-input-reference="general" class="error-message">Please fill in the fields</p>
+          <p data-input-reference="bill" class="error-message">Please specify a bill amount</p>
+          <p data-input-reference="people" class="error-message">Please specify how many people will pay the bill</p>
+          <p data-input-reference="service-rate" class="error-message">You must select a service rate</p>
+          <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <!-- entries -->
+        <!-- row -->
+        <div class="entry-row">
+          <h3>How much was your bill?</h3>
+          <div class="entry">
+            <div class="icon-box"><i class="fas fa-dollar-sign"></i></div>
+            <input type="number" data-id="bill" class="input input__bill-amount" autofocus>
+          </div> 
+        </div>
+        <!-- row -->
+        <div class="entry-row">
+          <h3>How many people sharing the bill?</h3>
+          <div class="entry">
+            <div class="icon-box"><i class="fas fa-user"></i></i></div>
+            <input type="number" data-id="people" class="input input__bill-share" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
+          </div>
+        </div>
+        <!-- row -->
+        <div class="entry-row">
+          <h3>How was your service?</h3>
+          <select data-id="service-rate" class="input input__rate-select">
+            <option selected value="">Choose...</option>
+            <option value="20">Great 20%</option>
+            <option value="10">Good 10%</option>
+            <option value="2">Bad 2%</option>
+          </select>
+        </div>
+        <!-- end of main -->
+
+        <!-- loading bars -->
+        <div class="loading-bars">
+          <div class="loading-bar bar-1"></div>
+          <div class="loading-bar bar-2"></div>
+          <div class="loading-bar bar-3"></div>
+        </div>
+
+        <!-- results -->
+        <div class="results">
+          <!-- dynamically generated with Javascript -->
+        </div>
+
+        <button class="calc btn show">Calculate</button>
+        <button class="new-calc btn">New tip calculation</button>
+      </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
